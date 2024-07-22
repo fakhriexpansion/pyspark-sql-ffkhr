@@ -10,10 +10,12 @@ Requires following dependencies:
 - Python (version 3.9 or above)
 - Docker
 
-Run following commands to build Dockerfile
+Run following commands to build Dockerfile and run the image
 ```shell
 docker build -t <image-name> .
+docker run -d <image-name>
 ```
+I also give the log of my running in local (with `sleep infinity` for debugging purposes) that is attached on `additional_info/container_run.log`
 
 ## Important notes
 I hide the dataset as it is privacy
@@ -34,7 +36,7 @@ gcloud init
 gcloud config set project <project-name>
 
 ```
-Go to `IAM and admin -> Service Accounts` in GCP to generate json file that will be used as service account to authenticate our action to write in google cloud storage
+Go to `IAM and admin -> Service Accounts` in GCP to generate json file that will be used as service account to authenticate our action to write in google cloud storage. However my json is hidden here.
 
 
 The screenshot after success upload to GCS can be seen on `additional_info/gcs_screenshot.png` above
