@@ -35,5 +35,4 @@ gcloud config set project <project-name>
 Go to `IAM and admin -> Service Accounts` in GCP to generate json file that will be used as service account to authenticate our action to write in google cloud storage
 
 
-This is what it looks after success upload to GCS
-![Success upload to GCS](gcs_scrrenshot.pngg)
+The screenshot after success upload to GCS can be seen on `gcs_screenshot.png` above
