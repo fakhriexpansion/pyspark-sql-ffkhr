@@ -18,6 +18,8 @@ docker build -t <image-name> .
 ## Important notes
 I hide the dataset as it is privacy
 
+There are some additional things on `additional_info` folder, like screenshot on GCS and data_dictionary files to explain the result (output.csv) on excel format.
+
 ## Upload to Google Storage
 
 Requirement : 
@@ -35,4 +37,4 @@ gcloud config set project <project-name>
 Go to `IAM and admin -> Service Accounts` in GCP to generate json file that will be used as service account to authenticate our action to write in google cloud storage
 
 
-The screenshot after success upload to GCS can be seen on `gcs_screenshot.png` above
+The screenshot after success upload to GCS can be seen on `additional_info/gcs_screenshot.png` above
