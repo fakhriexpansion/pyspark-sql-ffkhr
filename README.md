@@ -1,9 +1,9 @@
 # Pyspark with SQL
 
 ## Key Features
-- Collecting source file (csv) and read it seamlessly from folder dataset as pyspark dataframe (processing.py)
-- Having SQL file for additional advance processing (query.sql)
-- Show the data and write into output.csv
+- Collecting source file (csv) and read it seamlessly from folder dataset as pyspark dataframe `(processing.py)`
+- Having SQL file for additional advance processing `(query.sql)`
+- Show the data and write into `output.csv`
 
 ## Running locally
 Requires following dependencies: 
