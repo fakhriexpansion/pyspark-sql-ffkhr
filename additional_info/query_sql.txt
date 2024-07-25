@@ -2,6 +2,7 @@ SELECT
     ulg.id AS referral_details_id,
     ur.referral_id,
     ur.referral_source,
+    -- explained on test instructions no 3
     CASE
         WHEN ur.referral_source = 'User Sign Up' THEN 'Online'
         WHEN ur.referral_source = 'Draft Transaction' THEN 'Offline'
@@ -12,10 +13,12 @@ SELECT
     ul.name AS referrer_name,
     ul.phone_number AS referrer_phone_number,
     ul.homeclub AS referrer_homeclub,
+    -- referee_id codition based on diagram information on that column
     CASE WHEN ur.referral_source = 'Lead' THEN ll.source_category ELSE CONCAT(ur.referee_name, '_', ur.referee_phone) END AS referee_id,
     ur.referee_name,
     ur.referee_phone,
     urs.description AS referral_status,
+    -- get the integer only and cut the string
     CAST(regexp_extract(rr.reward_value, '\\d+', 0) AS INT) AS num_reward_days,
     ur.transaction_id,
     pt.transaction_status,
@@ -24,7 +27,8 @@ SELECT
     pt.transaction_type,
     ur.updated_at,
     ulg.created_at AS reward_granted_at,
-    CASE 
+    -- explained on test instructions no 4
+    CASE
         WHEN num_reward_days > 0 AND urs.description = "Berhasil" AND
         ur.transaction_id IS NOT NULL AND pt.transaction_status = "PAID" AND
         pt.transaction_type = "NEW" AND pt.transaction_at > ur.referral_at AND 
@@ -39,11 +43,12 @@ SELECT
         WHEN urs.description = "Berhasil" AND (num_reward_days IS NULL or num_reward_days = "null" or num_reward_days = 0) THEN 0
         WHEN pt.transaction_at < UR.referral_at THEN 0
         ELSE 0
-    END AS is_business_logic_valid_int
+    END AS is_business_logic_valid
 FROM user_referrals ur
 LEFT JOIN user_referrals_logs ulg ON ulg.user_referral_id = ur.referral_id
 LEFT JOIN user_logs ul ON ul.user_id = ur.referrer_id
-LEFT JOIN referral_rewards rr ON rr.id = ur.referral_reward_id 
+LEFT JOIN referral_rewards rr ON rr.id = ur.referral_reward_id
+-- join condition if referral_source is "Lead" as mentioned on diagram
 LEFT JOIN lead_logs ll ON ur.referral_source = 'Lead' AND ll.lead_id = ur.referee_id
 LEFT JOIN paid_transactions pt ON pt.transaction_id = ur.transaction_id
 LEFT JOIN user_referral_statuses urs ON urs.id = ur.user_referral_status_id

@@ -12,11 +12,15 @@ RUN apt-get update -qq && \
 WORKDIR /app
 COPY . .
 
-#RUN python3 -m pip install — upgrade pip
+# Build virtual environment for python named myenv
 RUN python3 -m venv myenv
 
 
 # Set the PATH environment variable to include the virtual environment's bin directory
 ENV PATH="/app/myenv/bin:$PATH"
+
+# Install python dependencies
 RUN pip3 install -r requirements.txt
+
+# Run python script
 CMD ["python3", "processing.py"]
