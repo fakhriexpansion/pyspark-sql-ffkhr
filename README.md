@@ -37,9 +37,9 @@ python3 processing.py --upload_gcp 1 --bucket_name bucket-storage --sa_file serv
 
 As you can see on the command and inside the file, the script default will not upload to GCS. So, you need to set some variables above to upload it into GCS. For more details, below i give explanation of the argument 
 
-- upload_gcp = enable (1) or disable (0) uploading to Google Cloud Platform (GCP)
-- bucket_name = bucket name on GCS. Mandatory if upload_gcp = 1
-- sa_file = SA file name you have. Mandatory if upload_gcp = 1
+- `upload_gcp` = enable (1) or disable (0) uploading to Google Cloud Platform (GCP)
+- `bucket_name` = bucket name on GCS. Mandatory if upload_gcp = 1
+- `sa_file` = SA file name you have. Mandatory if upload_gcp = 1
 
 If you dont have GCP access, please just run it with default as it will throw authentication error.
 
@@ -66,7 +66,7 @@ However, if you want to run with upload to GCS, below shows the command
 
 ```shell
 docker run -d <image-name> sleep infinity
-python3 processing.py --upload_gcp 1 --bucket_name "mxfaas-storage" --sa_file faas-kubernetes-creds.json
+python3 processing.py --upload_gcp 1 --bucket_name mxfaas-storage --sa_file faas-kubernetes-creds.json
 ```
 
 For more detail, you can see the log I provide inside `additional_info` folder. The main differences of those log is `finish upload to GCS` statement when trying to upload it to GCS.
