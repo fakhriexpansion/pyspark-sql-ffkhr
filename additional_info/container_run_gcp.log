@@ -7,7 +7,7 @@ fakhriakmalh@Fakhris-MacBook-Air ~ % docker container exec -it 68906c930ea1 /bin
 root@68906c930ea1:/app# ls
 Dockerfile  additional_info  faas-kubernetes-creds.json  output.csv     query.sql
 README.md   dataset          myenv                       processing.py  requirements.txt
-root@68906c930ea1:/app# python3 processing.py --upload_gcp 1 --bucket_name "mxfaas-storage" --sa_file faas-kubernetes-creds.json
+root@68906c930ea1:/app# python3 processing.py --upload_gcp 1 --bucket_name mxfaas-storage --sa_file faas-kubernetes-creds.json
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
 24/07/25 16:00:25 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable

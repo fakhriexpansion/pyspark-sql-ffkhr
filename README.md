@@ -53,8 +53,6 @@ docker run -d <image-name>
 ```
 I also give the log of my docker running in local. Kindly check `Running log` below
 
-For further development, the script can be run on top of k8s and can add the other argument seamlessly inside yaml file.
-
 ## Running log
 I provide two log here. One running container without upload to GCS and another one with upload to GCS. If you want to run it without upload to GCS, below shows the command
 
@@ -62,7 +60,7 @@ I provide two log here. One running container without upload to GCS and another 
 docker run -d <image-name>
 ```
 
-However, if you want to run with upload to GCS, below shows the command
+However, if you want to run with upload to GCS, below shows the command. Note that this step is not ideal for production purposes. This only shows you that my code also works to upload into GCP by make the container keep alive.
 
 ```shell
 docker run -d <image-name> sleep infinity
@@ -70,6 +68,8 @@ python3 processing.py --upload_gcp 1 --bucket_name mxfaas-storage --sa_file faas
 ```
 
 For more detail, you can see the log I provide inside `additional_info` folder. The main differences of those log is `finish upload to GCS` statement when trying to upload it to GCS.
+
+For further development, the script can be run on top of k8s and can add the other argument seamlessly inside yaml file.
 
 ## Important notes
 There are some important notes regarding this repo: 
