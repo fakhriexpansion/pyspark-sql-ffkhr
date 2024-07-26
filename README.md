@@ -43,6 +43,8 @@ As you can see on the command and inside the file, the script default will not u
 
 If you dont have GCP access, please just run it with default as it will throw authentication error.
 
+If you want to run it locally with python, please make sure to install python package dependencies written on `requirements.txt`. But, the best practices run it with docker to meet similar dependencies.
+
 
 ## Running with docker locally
 
