@@ -35,9 +35,9 @@ However, if you want to upload it to GCS, you can run it with the following comm
 python3 processing.py --upload_gcp 1 --bucket_name bucket-storage --sa_file service_account.json
 ```
 
-However, as you can see on the command and inside the file, the script default will not upload to GCS. So, you need to set some variables above to upload it into GCS. For more details, below i give explanation of the argument 
+As you can see on the command and inside the file, the script default will not upload to GCS. So, you need to set some variables above to upload it into GCS. For more details, below i give explanation of the argument 
 
-- upload_gcp = enable (1) or disable (0) uploading to GCP
+- upload_gcp = enable (1) or disable (0) uploading to Google Cloud Platform (GCP)
 - bucket_name = bucket name on GCS. Mandatory if upload_gcp = 1
 - sa_file = SA file name you have. Mandatory if upload_gcp = 1
 
@@ -51,9 +51,9 @@ Run following commands to build Dockerfile and run the image
 docker build -t <image-name> .
 docker run -d <image-name>
 ```
-I also give the log of my running in local (with `sleep infinity` for debugging purposes) that is attached on `additional_info/container_run.log`
+I also give the log of my docker running in local. Kindly check `Running log` below
 
-Currently, I set it to be run as default in dockerfile (not upload to GCS). For further development, the script can be run on top of k8s and can add the other argument seamlessly inside yaml file.
+For further development, the script can be run on top of k8s and can add the other argument seamlessly inside yaml file.
 
 ## Running log
 I provide two log here. One running container without upload to GCS and another one with upload to GCS. If you want to run it without upload to GCS, below shows the command
